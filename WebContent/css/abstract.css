@@ -1,0 +1,73 @@
+#breadcrum {
+  list-style: none;
+  display: inline-block;
+}
+#breadcrum .icon {
+  font-size: 15px;
+}
+
+
+#breadcrum li a {
+  color: #FFF;
+  display: block;
+  background: #4682B4;
+  text-decoration: none;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  padding: 1px 10px 0px 5px; 
+  text-align: left;
+  margin-right: 35px;   
+}
+
+#breadcrum li:nth-child(even) a {
+  background-color:#4682B4;
+}
+#breadcrum li:nth-child(even) a:before {
+  border-color: #4682B4;
+  border-left-color: transparent;
+}
+
+#breadcrum li:first-child a {
+  padding-left: 20px;  
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  -ms-border-radius: 4px 0 0 4px;
+  -o-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+#breadcrum li:first-child a:before {
+  border: none;
+}
+#breadcrum li:last-child a {
+  padding-right: 25px;
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -ms-border-radius: 0 4px 4px 0;
+  -o-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+
+
+
+#breadcrum li a:hover {
+  background-color: #1abc9c;
+}
+#breadcrum li a:hover:before {
+  border-color: #1abc9c;
+  border-left-color: transparent;
+}
+#breadcrum li a:hover:after {
+  border-left-color: #1abc9c;
+}
+#breadcrum li a:active {
+  background-color: #003F5F;
+}
+#breadcrum li a:active:before {
+  border-color: #003F5F;
+  border-left-color: transparent;
+}
+#breadcrum li a:active:after {
+  border-left-color: #003F5F;
+}

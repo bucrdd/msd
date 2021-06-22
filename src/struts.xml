@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+
+	<package name="default" extends="struts-default">
+    <action name="HIC" class="action.HIC_action">
+		<result name="success">
+			/HicView.jsp
+		</result>
+		<result name="error">
+			/errorHA.jsp
+		</result>
+	</action>
+	<action name="ATAC" class="action.ATAC_action">
+		<result name="success">
+			/AtacView.jsp
+		</result>
+		<result name="error">
+			/errorHA.jsp
+		</result>
+	</action>
+	<action name="gtgene3" class="action.gtgene3_action">
+		<result name="success">
+			/gtgene3.jsp
+		</result>
+		<result name="error">
+			/error.jsp
+		</result>
+	</action>
+		
+<action name="gtgene4" class="action.gtgene4_action">
+	<result name="success">
+		/gtgene4.jsp
+	</result>
+	<result name="error">
+		/error.jsp
+	</result>
+</action>
+		
+<action name="gtgene5" class="action.gtgene5_action">
+	<result name="success">
+	   /gtgene5.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="cancer" class="action.cancer_action">
+	<result name="success">
+	   /cancerView.jsp
+            </result>
+             <result name="error">
+				/CancerError.jsp
+            </result>
+		</action>
+		<action name="BrowserViewAction" class="action.BrowserViewAction">
+			<result name="success">/browse.jsp</result>
+		</action>
+		
+	<action name="gtgene" class="action.gtgene_action">
+	<result name="success" type="stream">
+	<param name="contentType">text/plain</param> 
+    <param name="contentDisposition">attachment;fileName="${fileName}"</param> 
+    <param name="inputName">downloadFile</param>
+    <param name="bufferSize">1024</param>
+            </result>
+             <result name="error">
+				/error2.jsp
+            </result>
+		</action>
+		<action name="gtgene2" class="action.gtgene2_action">
+	<result name="success">
+	   /gtgene2.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		
+		
+		<action name="gtmir" class="action.gtmir_action">
+		<result name="one">
+	   /gtmir3.jsp
+            </result>
+	<result name="success">
+	   /gtmir.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="gtmir2" class="action.gtmir2_action">
+	<result name="success">
+	   /gtmir2.jsp
+            </result>
+             <result name="error">
+				/two.jsp
+            </result>
+		</action>
+		
+	<action name="gtsnp" class="action.gtsnp_action">
+	<result name="one">
+	   /gtsnp3.jsp
+            </result>
+	<result name="success">
+	   /gtsnp.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+			<action name="gtsnp2" class="action.gtsnp2_action">
+	<result name="success">
+	   /gtsnp2.jsp
+            </result>
+             <result name="error">
+				/two.jsp
+            </result>
+		</action>
+		
+		<action name="mirgene" class="action.mirgene_action">
+		<result name="one">
+	   /mirgene3.jsp
+            </result>
+	<result name="success">
+	   /mirgene.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="mirgene2" class="action.mirgene2_action">
+	<result name="success">
+	   /mirgene2.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		
+			<action name="mirmir" class="action.mirmir_action">
+			<result name="one">
+	   /mirmir3.jsp
+	   </result>
+	<result name="success">
+	   /mirmir.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+			<action name="mirmir2" class="action.mirmir2_action">
+	<result name="success">
+	   /mirmir2.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+			<action name="mirsnp" class="action.mirsnp_action">
+			<result name="one">
+	   /mirsnp3.jsp
+            </result>
+	<result name="success">
+	   /mirsnp.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="mirsnp2" class="action.mirsnp2_action">
+	<result name="success">
+	   /mirsnp2.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		
+		
+	
+	<action name="detail" class="action.detail_action">
+	<result name="success">
+	   /detail.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="detail2" class="action.detail2_action">
+	<result name="success">
+	   /detail2.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+	
+	<action name="gene" class="action.gene_action">
+	<result name="success">
+	   /gene.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="gene2" class="action.gene_action">
+	<result name="success">
+	   /gene.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="disease3" class="action.disease3_action">
+	<result name="success">
+	   /diseases.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="disease" class="action.disease_action">
+	<result name="one">
+	   /disease3.jsp
+            </result>
+	<result name="success">
+	   /disease.jsp
+            </result>
+             <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="disease2" class="action.disease2_action">
+	<result name="success">
+	   /disease2.jsp
+            </result>
+             <result name="error">
+				/two.jsp
+            </result>
+		</action>
+		
+		<action name="mirna" class="action.mirna_action">
+		<result name="success">
+	          /mirna.jsp
+            </result>
+              <result name="error">
+				/error.jsp
+            </result>
+		</action>
+		<action name="snpid" class="action.snpid_action">
+		<result name="success">
+	          /snpid.jsp
+            </result>
+            <result name="error">
+				/error2.jsp
+            </result>
+		</action>
+		<action name="quick" class="action.quick_action">
+		<result name="success">
+	          /quick.jsp
+            </result>
+            <result name="error">
+				/error2.jsp
+            </result>
+		</action>
+       <action name="submit" class="action.submit">
+			<result name="success">
+				/submit2.jsp
+            </result>
+            <result name="error">
+            /submit.jsp
+            </result>
+		</action>
+	</package>
+	<!-- Add packages here -->
+
+</struts>

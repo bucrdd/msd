@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="default" location="690,108" size="334,2629">
+    <action name="gtgene" location="91,29" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="gtgene3.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gtgene3.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="gtgene2" location="91,186" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="two.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gtgene2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="gtmir" location="91,344" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="gtmir3.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gtmir.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="gtmir2" location="91,483" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gtmir2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="two.jsp" />
+      </result>
+    </action>
+    <action name="gtsnp" location="91,633" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="gtsnp3.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gtsnp.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="gtsnp2" location="91,772" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gtsnp2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="two.jsp" />
+      </result>
+    </action>
+    <action name="mirgene" location="91,921" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="mirgene3.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mirgene.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="mirgene2" location="91,1035" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mirgene2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="mirmir" location="91,1184" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="mirmir3.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mirmir.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="mirmir2" location="91,1297" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mirmir2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="mirsnp" location="91,1446" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="mirsnp3.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mirsnp.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="mirsnp2" location="91,1560" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mirsnp2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="detail" location="91,1638" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="detail.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="detail2" location="91,1717" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="detail2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="gene" location="91,1796" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gene.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="gene" location="91,1875" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gene.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="disease3" location="91,1953" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="diseases.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="disease" location="91,2103" size="114,83">
+      <result name="one">
+        <resourceEdge source="one" routing="0" target="disease3.jsp" />
+      </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="disease.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="disease2" location="91,2557" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="disease2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="two.jsp" />
+      </result>
+    </action>
+    <action name="mirna" location="-119,2557" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mirna.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="snpid" location="-119,2452" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="snpid.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error2.jsp" />
+      </result>
+    </action>
+    <action name="quick" location="-119,2373" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="quick.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error2.jsp" />
+      </result>
+    </action>
+    <action name="submit" location="-119,2295" size="114,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="submit2.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="submit.jsp" />
+      </result>
+    </action>
+    <action name="gene2" location="-115,171" size="113,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gene.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="gtgene3.jsp" path="/gtgene3.jsp" location="895,10" size="150,55" />
+  <webResource name="error.jsp" path="/error.jsp" location="58,3551" size="150,55" />
+  <webResource name="two.jsp" path="/two.jsp" location="1560,1095" size="150,55" />
+  <webResource name="gtgene2.jsp" path="/gtgene2.jsp" location="1315,290" size="150,55" />
+  <webResource name="gtmir3.jsp" path="/gtmir3.jsp" location="1315,605" size="150,55" />
+  <webResource name="gtmir.jsp" path="/gtmir.jsp" location="1315,500" size="150,55" />
+  <webResource name="gtmir2.jsp" path="/gtmir2.jsp" location="1315,780" size="150,55" />
+  <webResource name="gtsnp3.jsp" path="/gtsnp3.jsp" location="1315,990" size="150,55" />
+  <webResource name="gtsnp.jsp" path="/gtsnp.jsp" location="1315,885" size="150,55" />
+  <webResource name="gtsnp2.jsp" path="/gtsnp2.jsp" location="1315,1165" size="150,55" />
+  <webResource name="mirgene3.jsp" path="/mirgene3.jsp" location="1315,1375" size="150,55" />
+  <webResource name="mirgene.jsp" path="/mirgene.jsp" location="1315,1270" size="150,55" />
+  <webResource name="mirgene2.jsp" path="/mirgene2.jsp" location="1315,1515" size="150,55" />
+  <webResource name="mirmir3.jsp" path="/mirmir3.jsp" location="1315,1725" size="150,55" />
+  <webResource name="mirmir.jsp" path="/mirmir.jsp" location="1315,1620" size="150,55" />
+  <webResource name="mirmir2.jsp" path="/mirmir2.jsp" location="1315,1865" size="150,55" />
+  <webResource name="mirsnp3.jsp" path="/mirsnp3.jsp" location="1315,2075" size="150,55" />
+  <webResource name="mirsnp.jsp" path="/mirsnp.jsp" location="1315,1970" size="150,55" />
+  <webResource name="mirsnp2.jsp" path="/mirsnp2.jsp" location="1315,2215" size="150,55" />
+  <webResource name="detail.jsp" path="/detail.jsp" location="1315,2320" size="150,55" />
+  <webResource name="detail2.jsp" path="/detail2.jsp" location="1315,2425" size="150,55" />
+  <webResource name="gene.jsp" path="/gene.jsp" location="1315,2635" size="150,55" />
+  <webResource name="diseases.jsp" path="/diseases.jsp" location="1315,2740" size="150,55" />
+  <webResource name="disease3.jsp" path="/disease3.jsp" location="1315,2950" size="150,55" />
+  <webResource name="disease.jsp" path="/disease.jsp" location="1315,2845" size="150,55" />
+  <webResource name="disease2.jsp" path="/disease2.jsp" location="1035,3685" size="150,55" />
+  <webResource name="mirna.jsp" path="/mirna.jsp" location="755,3685" size="150,55" />
+  <webResource name="snpid.jsp" path="/snpid.jsp" location="475,3405" size="150,55" />
+  <webResource name="error2.jsp" path="/error2.jsp" location="230,3020" size="150,55" />
+  <webResource name="quick.jsp" path="/quick.jsp" location="475,3300" size="150,55" />
+  <webResource name="submit2.jsp" path="/submit2.jsp" location="475,3090" size="150,55" />
+  <webResource name="submit.jsp" path="/submit.jsp" location="475,3195" size="150,55" />
+</Struts2Diagram>
+
