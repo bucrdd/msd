@@ -1,0 +1,20 @@
+body {
+  background-color: #FFFFFF;
+}
+
+img {
+  border: none;
+}
+
+image {
+  border: none;
+}
+
+.navigation {
+  font-size: 25px;
+  margin: 20px auto 0;
+  width: 1900px;
+  height: 45px;
+  z-index: 99999;
+  position: relative
+}

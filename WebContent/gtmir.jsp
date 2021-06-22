@@ -25,10 +25,9 @@ a:hover{
 }
 
 body {
-	margin:0 auto;
-	width:1160px;
-	margin-top: 20px;
-	background-image:  url(images/bg010.png);
+  width:1160px;
+  margin: 20px auto 0;
+  background-image:  url(images/bg010.png);
 	background-repeat: repeat;
 }
 p.p0 {
