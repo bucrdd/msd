@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="css/abstract.css"/>  <!-- 导航-->
 <title>HHMD</title>
 <link rel="shortcut icon" href="images/dd.ico" />
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"> 
-</script> 
+<script type="text/javascript" src="js/jquery-1.8.3.min.js">
+</script>
 <script type="text/javascript">
 $(function(){
   $('#J_radio').on('click', function(){
@@ -178,7 +178,7 @@ text-align:center;
         border-color: #51a7e8;
         box-shadow: inset 0 1px 2px rgba(0,0,0,.075), 0 0 5px rgba(81,167,232,.5);
       }
-     
+
       label[for=search] {
         display: block;
         text-align: left;
@@ -198,22 +198,22 @@ text-align:center;
 
 
 .searchFrame {
-	border: 2px solid #006192; 
+	border: 2px solid #006192;
 	border-radius: 5px;
-	position: relative; 
-	margin: 45px 2px 10px;  
+	position: relative;
+	margin: 45px 2px 10px;
 	padding: 25px 0px 20px 25px;
 }
 .searchTitle {
 	/*width: 166px;*/
-    background: #006192; 
-	font-size: 18px; 
+    background: #006192;
+	font-size: 18px;
 	font-weight: bold;
-	text-align: center; 
-	border-radius: 12px; 
-	padding: 5px 20px; 
-	position: absolute; 
-	top: -22px; 
+	text-align: center;
+	border-radius: 12px;
+	padding: 5px 20px;
+	position: absolute;
+	top: -22px;
 	left: 20px;
 }
 .searchIntro {
@@ -239,7 +239,7 @@ body,td,th {
 	font-family: Arial;
 	font-size:15px;
 	}
-	a:link {color: #006192} 
+	a:link {color: #006192}
 a:link,a:visited{
  text-decoration:none;  /*超链接无下划线*/
 }
@@ -336,7 +336,7 @@ body,td,th {
 	height:200px;
 	cursor:pointer;
 	background-size:100% 100%;
-	
+
 }
 
 #showSampleSearchPanel{
@@ -408,22 +408,22 @@ body,td,th {
                               <p>&nbsp;</p>
                                 <p>&nbsp;</p>
                            <a href="diseaseSearch.jsp"><img src="images/search/disease.png"  style="height: 300px; width: 300px; margin:0 20px 10px 20px;"/></a>
-                         
+
                            <a  href="normalSearch.jsp"><img src="images/search/tissue.png" style="height: 300px; width: 300px; margin:0 20px 10px 20px;"/></a>
-                         
+
                            <a  href="CellLineSearch.jsp"><img src="images/search/cellline.png" style="height: 300px; width: 300px; margin:0 20px 10px 20px;"/></a>
-                          
+
                            <a  href="Advancesearch.jsp"><img src="images/search/advance.png" style="height: 300px; width: 300px; margin:0 20px 10px 20px;"/></a>
-                           
+
                          <p>&nbsp;</p>
 						<p>&nbsp;</p>
 		                <p>&nbsp;</p>
 						<p>&nbsp;</p>
 						<p>&nbsp;</p>
 						<p>&nbsp;</p>
-						
-						
-						
+
+
+
  </div>
  	<div style="font-size:30px;line-height:40px;width:1800px;border:0px solid #cccccc; height: 192px;text-align:left;">
 						<div style="width:1800px;height:40px;background:#006192;font-weight:bold;font-size:30px;"><font COLOR="#FFFFFF"  face="Calibri"><b>&ensp;&nbsp;Options:</b></font></div>
