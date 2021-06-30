@@ -28,7 +28,7 @@ public class Gtgene4Action implements Action {
 
   public String execute() throws Exception {
 
-    log.debug("gtgene4={}, hm={}, type={}, chr={}, start={}, end={}, diff_method={}",
+    log.debug("Gtgene4={}, hm={}, type={}, chr={}, start={}, end={}, diff_method={}",
         gtgene4, hm, type, chr, start, end, diff_method);
 
     diff_method = "Normal";
