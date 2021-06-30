@@ -7,7 +7,7 @@ import java.util.Map;
 import util.DbCon;
 
 
-import beans.gtgene5;
+import beans.Gtgene5;
 
 
 import com.opensymphony.xwork2.Action;
@@ -92,8 +92,8 @@ public void setDiff_method(String diffMethod) {
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		String ONE="one";
-		ArrayList<gtgene5> gtgene5_List = new ArrayList<gtgene5>();
-		ArrayList<gtgene5> gtgene5_total = new ArrayList<gtgene5>();
+		ArrayList<Gtgene5> gtgene5_List = new ArrayList<Gtgene5>();
+		ArrayList<Gtgene5> gtgene5_total = new ArrayList<Gtgene5>();
 
 		DbCon dbc = new DbCon();
 		Statement st = dbc.getStat();
@@ -152,22 +152,22 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
 					
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);
@@ -182,15 +182,15 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
@@ -198,7 +198,7 @@ public void setDiff_method(String diffMethod) {
 				
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);
@@ -215,15 +215,15 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
@@ -231,7 +231,7 @@ public void setDiff_method(String diffMethod) {
 				
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);
@@ -246,15 +246,15 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
@@ -262,7 +262,7 @@ public void setDiff_method(String diffMethod) {
 				
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);
@@ -287,22 +287,22 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
 					
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);
@@ -317,15 +317,15 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
@@ -333,7 +333,7 @@ public void setDiff_method(String diffMethod) {
 				
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);
@@ -350,15 +350,15 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
@@ -366,7 +366,7 @@ public void setDiff_method(String diffMethod) {
 				
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);
@@ -381,15 +381,15 @@ public void setDiff_method(String diffMethod) {
 				rs=st.executeQuery(sql);
 				while (rs.next()) {
 					index=1;
-					gtgene5 gtgene5 = new gtgene5();
+					Gtgene5 gtgene5 = new Gtgene5();
 					gtgene5.setType(rs.getString(1));
 					gtgene5.setHm(rs.getString(2));
-					gtgene5.setGenename(rs.getString(3));
+					gtgene5.setGeneName(rs.getString(3));
 					gtgene5.setChr(rs.getString(4));
 					gtgene5.setStart(rs.getString(5));
 					gtgene5.setEnd(rs.getString(6));
 					gtgene5.setTf(rs.getString(13));
-					gtgene5.setTdrug(rs.getString(12));
+					gtgene5.setDrug(rs.getString(12));
 					gtgene5.setGse(rs.getString(16));
 					gtgene5.setOption(rs.getString(17));
 					gtgene5_total.add(gtgene5);
@@ -397,7 +397,7 @@ public void setDiff_method(String diffMethod) {
 				
 				}
 				if(index==1){
-					Map<String, ArrayList<gtgene5>> request = (Map) ActionContext.getContext().get("request");
+					Map<String, ArrayList<Gtgene5>> request = (Map) ActionContext.getContext().get("request");
 						
 					request.put("gtgene5_List", gtgene5_List);
 					request.put("gtgene5_total",gtgene5_total);

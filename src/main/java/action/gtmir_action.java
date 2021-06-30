@@ -9,7 +9,7 @@ import util.DbCon;
 
 
 
-import beans.gtmir;
+import beans.Gtmir;
 
 
 
@@ -40,8 +40,8 @@ public class gtmir_action implements Action{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		String ONE="one";
-		ArrayList<gtmir> gtmir_List = new ArrayList<gtmir>();
-		ArrayList<gtmir> gtmir_total = new ArrayList<gtmir>();
+		ArrayList<Gtmir> gtmir_List = new ArrayList<Gtmir>();
+		ArrayList<Gtmir> gtmir_total = new ArrayList<Gtmir>();
 		HashSet<String> gtmir_name = new HashSet<String>();
 		DbCon dbc = new DbCon();
 		Statement st = dbc.getStat();
@@ -54,8 +54,8 @@ public class gtmir_action implements Action{
 		rs=st.executeQuery(sql);
 		while (rs.next()) {
 			index=1;
-			gtmir gtmir = new gtmir();
-			gtmir.setPMID(rs.getInt(1));
+			Gtmir gtmir = new Gtmir();
+			gtmir.setPmid(rs.getInt(1));
 			gtmir.setGene(rs.getString(2));
 			gtmir.setMicroRNA_name(rs.getString(3));
 			gtmir.setSNP_ID(rs.getString(4));
@@ -72,7 +72,7 @@ public class gtmir_action implements Action{
 		}
 		}
 		if(index==1){
-		Map<String, ArrayList<gtmir>> request = (Map) ActionContext.getContext().get("request");
+		Map<String, ArrayList<Gtmir>> request = (Map) ActionContext.getContext().get("request");
 			
 		request.put("gtmir_List", gtmir_List);
 		request.put("gtmir_total",gtmir_total);

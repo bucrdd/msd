@@ -1,6 +1,6 @@
 package beans;
 
-public class gtgene5 {
+public class gtgene4 {
 	/*public String getDisease() {
 		return disease;
 	}
@@ -137,7 +137,7 @@ public class gtgene5 {
 	public void setTreat_method(String treatMethod) {
 		Treat_method = treatMethod;
 	}*/
-	public gtgene5( String type, String hm ,String genename,String tf,String tdrug,String chr ,String start,String end,String option){
+	public gtgene4( String type, String hm ,String genename,String tf,String tdrug,String chr ,String start,String end,String option){
 	super();
 	//this.disease = disease;
 	//this.name = name;
@@ -163,7 +163,7 @@ public class gtgene5 {
 	
 	
 	}
-	public gtgene5(){
+	public gtgene4(){
 		super();
 		//TODO Auto-generated constructor stub
 	}

@@ -58,9 +58,9 @@ public class gtgene_action implements Action {
 
     /*
      * if(type.contains("\'")){ type = type.replace("\'", "\'\'"); }
-     * gtgene=gtgene.trim();
+     * Gtgene=Gtgene.trim();
      */
-    // System.out.println(gtgene);
+    // System.out.println(Gtgene);
     //System.out.println("diseasetheName: " + diseasetheName + ", diseasetheName.size() = " + diseasetheName.size());
     //System.out.println("normaltheName: " + normaltheName + ", normaltheName.size() = " + normaltheName.size());
     //System.out.println("diseaseCelltheName: " + diseaseCelltheName + ", diseaseCelltheName.size() = " + diseaseCelltheName.size());

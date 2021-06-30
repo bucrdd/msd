@@ -7,7 +7,7 @@ import java.util.Map;
 import util.DbCon;
 
 
-import beans.gtmir2;
+import beans.Gtmir2;
 
 
 
@@ -37,7 +37,7 @@ public class gtmir2_action implements Action{
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		ArrayList<gtmir2> gtmir2_List = new ArrayList<gtmir2>();
+		ArrayList<Gtmir2> gtmir2_List = new ArrayList<Gtmir2>();
 		DbCon dbc = new DbCon();
 		Statement st = dbc.getStat();
 		ResultSet rs = null;
@@ -54,8 +54,8 @@ public class gtmir2_action implements Action{
 		rs=st.executeQuery(sql);
 		while (rs.next()) {
 			index=1;
-			gtmir2 gtmir2 = new gtmir2();
-			gtmir2.setPMID(rs.getInt(1));
+			Gtmir2 gtmir2 = new Gtmir2();
+			gtmir2.setPmid(rs.getInt(1));
 			gtmir2.setGene(rs.getString(2));
 			gtmir2.setMicroRNA_name(rs.getString(3));
 			gtmir2.setSNP_ID(rs.getString(4));
@@ -69,7 +69,7 @@ public class gtmir2_action implements Action{
 		}
 		}
 		if(index==1){
-		Map<String, ArrayList<gtmir2>> request = (Map) ActionContext.getContext().get("request");
+		Map<String, ArrayList<Gtmir2>> request = (Map) ActionContext.getContext().get("request");
 			
 		request.put("gtmir2_List", gtmir2_List);
 		return SUCCESS;

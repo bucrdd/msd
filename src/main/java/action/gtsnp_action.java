@@ -9,7 +9,7 @@ import util.DbCon;
 
 
 
-import beans.gtsnp;
+import beans.Gtsnp;
 
 
 
@@ -40,8 +40,8 @@ public class gtsnp_action implements Action{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		String ONE="one";
-		ArrayList<gtsnp> gtsnp_List = new ArrayList<gtsnp>();
-		ArrayList<gtsnp> gtsnp_total = new ArrayList<gtsnp>();
+		ArrayList<Gtsnp> gtsnp_List = new ArrayList<Gtsnp>();
+		ArrayList<Gtsnp> gtsnp_total = new ArrayList<Gtsnp>();
 		HashSet<String> gtsnp_name = new HashSet<String>();
 		DbCon dbc = new DbCon();
 		Statement st = dbc.getStat();
@@ -54,7 +54,7 @@ public class gtsnp_action implements Action{
 		rs=st.executeQuery(sql);
 		while (rs.next()) {
 			index=1;
-			gtsnp gtsnp = new gtsnp();
+			Gtsnp gtsnp = new Gtsnp();
 			gtsnp.setPMID(rs.getInt(1));
 			gtsnp.setGene(rs.getString(2));
 			gtsnp.setMicroRNA_name(rs.getString(3));
@@ -63,7 +63,7 @@ public class gtsnp_action implements Action{
 			gtsnp.setType(rs.getString(6));
 			gtsnp.setAllele(rs.getString(7));
 			gtsnp.setMethod(rs.getString(8));
-			gtsnp.setMicroRNA_effection(rs.getString(9));
+			gtsnp.setMicroRnaAffection(rs.getString(9));
 			gtsnp_total.add(gtsnp);
 			
 
@@ -73,7 +73,7 @@ public class gtsnp_action implements Action{
 		}
 		}
 		if(index==1){
-		Map<String, ArrayList<gtsnp>> request = (Map) ActionContext.getContext().get("request");
+		Map<String, ArrayList<Gtsnp>> request = (Map) ActionContext.getContext().get("request");
 			
 		request.put("gtsnp_List", gtsnp_List);
 		request.put("gtsnp_total",gtsnp_total);
