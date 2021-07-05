@@ -3,15 +3,78 @@ package action;
 import com.opensymphony.xwork2.Action;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 public class gtgene_action implements Action {
 
-  public String fileName;
+  private static final Logger log = LogManager.getLogger(gtgene_action.class);
+
+  private String fileName;
   private ArrayList<String> diseasetheName;
   private ArrayList<String> normaltheName;
   private ArrayList<String> diseaseCelltheName;
   private ArrayList<String> normalCelltheName;
+
+  public String execute() throws Exception {
+    if (parameterNumber() != 2) {
+      return ERROR;
+    }
+    final List<String> params = getFilenameParameters();
+    if (params.size() != 2 || params.get(0).equals(params.get(1))) {
+      return ERROR;
+    }
+    this.fileName = params.get(0) + "_vs_" + params.get(1) + "_db.zip";
+    try {
+      getDownloadFile();
+    } catch (Exception e) {
+      return ERROR;
+    }
+    return SUCCESS;
+  }
+
+  private int parameterNumber() {
+    return CollectionUtils.size(diseasetheName) + CollectionUtils.size(normaltheName)
+        + CollectionUtils.size(diseaseCelltheName) + CollectionUtils.size(normalCelltheName);
+  }
+
+  private List<String> getFilenameParameters() {
+    ArrayList<String> result = new ArrayList<>();
+    if (diseasetheName != null) {
+      result.addAll(diseasetheName);
+      log.debug("Add {} parameter(s) from \"{}\": {}",
+          diseasetheName.size(), "diseasetheName", diseasetheName);
+    }
+    if (normaltheName != null) {
+      result.addAll(normaltheName);
+      log.debug("Add {} parameter(s) from \"{}\": {}",
+          normaltheName.size(), "normaltheName", normaltheName);
+    }
+    if (diseasetheName != null) {
+      result.addAll(diseaseCelltheName);
+      log.debug("Add {} parameter(s) from \"{}\": {}",
+          diseaseCelltheName.size(), "diseaseCelltheName", diseaseCelltheName);
+    }
+    if (normalCelltheName != null) {
+      result.addAll(normalCelltheName);
+      log.debug("Add {} parameter(s) from \"{}\": {}",
+          normalCelltheName.size(), "normalCelltheName", normalCelltheName);
+    }
+    return result;
+  }
+
+  public InputStream getDownloadFile() throws IllegalArgumentException {
+    String filenamePath = "/download/DiffBind/" + fileName;
+    log.debug(filenamePath);
+    final InputStream resourceAsStream = ServletActionContext.getServletContext().getResourceAsStream(filenamePath);
+    if (resourceAsStream == null) {
+      throw new IllegalArgumentException(fileName + " is not exist!");
+    }
+    return resourceAsStream;
+  }
 
   public ArrayList<String> getDiseasetheName() {
     return diseasetheName;
@@ -51,172 +114,5 @@ public class gtgene_action implements Action {
 
   public void setFileName(String fileName) {
     this.fileName = fileName;
-  }
-
-  public String execute() throws Exception {
-    // TODO Auto-generated method stub
-
-    /*
-     * if(type.contains("\'")){ type = type.replace("\'", "\'\'"); }
-     * Gtgene=Gtgene.trim();
-     */
-    // System.out.println(Gtgene);
-    //System.out.println("diseasetheName: " + diseasetheName + ", diseasetheName.size() = " + diseasetheName.size());
-    //System.out.println("normaltheName: " + normaltheName + ", normaltheName.size() = " + normaltheName.size());
-    //System.out.println("diseaseCelltheName: " + diseaseCelltheName + ", diseaseCelltheName.size() = " + diseaseCelltheName.size());
-    //System.out.println("normalCelltheName: " + normalCelltheName + ", normalCelltheName.size() = " + normalCelltheName.size());
-    int lenD;
-    int lenN;
-    int lenDC;
-    int lenNC;
-    if (diseasetheName == null) {
-      lenD = 0;
-    } else {
-      lenD = diseasetheName.size();
-    }
-    if (normaltheName == null) {
-      lenN = 0;
-    } else {
-      lenN = normaltheName.size();
-    }
-    if (diseaseCelltheName == null) {
-      lenDC = 0;
-    } else {
-      lenDC = diseaseCelltheName.size();
-    }
-
-    if (normalCelltheName == null) {
-      lenNC = 0;
-    } else {
-      lenNC = normalCelltheName.size();
-    }
-    int len = lenD + lenN + lenDC + lenNC;
-    int lenDD = lenD;
-    int lenDN = lenD + lenN;
-    int lenDNC = lenD + lenNC;
-    int lenDDC = lenD + lenDC;
-    int lenNN = lenN;
-    int lenNDC = lenN + lenDC;
-    int lenNNC = lenN + lenNC;
-    int lenDCDC = lenDC;
-    int lenNCDC = +lenNC + lenDC;
-    int lenNCNC = +lenNC;
-    System.out.println(len);
-    if (len != 2) {
-      return ERROR;
-    } else if (lenDD == 2) {
-      if (diseasetheName.get(0) == diseasetheName.get(1)) {
-        return ERROR;
-      } else {
-        this.fileName = diseasetheName.get(0) + "_vs_" + diseasetheName.get(1) + "_db.zip";
-        try {
-          getDownloadFile();
-        } catch (Exception e) {
-          return ERROR;
-        }
-        return SUCCESS;
-      }
-    } else if (lenNN == 2) {
-      if (normaltheName.get(0) == normaltheName.get(1)) {
-        return ERROR;
-      } else {
-        this.fileName = normaltheName.get(0) + "_vs_" + normaltheName.get(1) + "_db.zip";
-        try {
-          getDownloadFile();
-        } catch (Exception e) {
-          return ERROR;
-        }
-        return SUCCESS;
-      }
-    } else if (lenDCDC == 2) {
-      if (diseaseCelltheName.get(0) == diseaseCelltheName.get(1)) {
-        return ERROR;
-      } else {
-        this.fileName = diseaseCelltheName.get(0) + "_vs_" + diseaseCelltheName.get(1) + "_db.zip";
-        try {
-          getDownloadFile();
-        } catch (Exception e) {
-
-          return ERROR;
-        }
-        return SUCCESS;
-      }
-    } else if (lenNCNC == 2) {
-      if (normalCelltheName.get(0) == normalCelltheName.get(1)) {
-        return ERROR;
-
-      } else {
-        this.fileName = normalCelltheName.get(0) + "_vs_" + normalCelltheName.get(1) + "_db.zip";
-        try {
-          getDownloadFile();
-        } catch (Exception e) {
-
-          return ERROR;
-        }
-        return SUCCESS;
-      }
-    } else if (lenDN == 2) {
-      this.fileName = diseasetheName.get(0) + "_vs_" + normaltheName.get(0) + "_db.zip";
-      try {
-        getDownloadFile();
-      } catch (Exception e) {
-
-        return ERROR;
-      }
-      return SUCCESS;
-    } else if (lenDNC == 2) {
-      this.fileName = diseasetheName.get(0) + "_vs_" + normalCelltheName.get(0) + "_db.zip";
-      try {
-        getDownloadFile();
-      } catch (Exception e) {
-        return ERROR;
-      }
-      return SUCCESS;
-    } else if (lenDDC == 2) {
-      this.fileName = diseasetheName.get(0) + "_vs_" + diseaseCelltheName.get(0) + "_db.zip";
-      try {
-        getDownloadFile();
-      } catch (Exception e) {
-        return ERROR;
-      }
-      return SUCCESS;
-    } else if (lenNDC == 2) {
-      this.fileName = normaltheName.get(0) + "_vs_" + diseaseCelltheName.get(0) + "_db.zip";
-      try {
-        getDownloadFile();
-      } catch (Exception e) {
-        return ERROR;
-      }
-      return SUCCESS;
-    } else if (lenNNC == 2) {
-      this.fileName = normaltheName.get(0) + "_vs_" + normalCelltheName.get(0) + "_db.zip";
-      try {
-        getDownloadFile();
-      } catch (Exception e) {
-        return ERROR;
-      }
-      return SUCCESS;
-    } else if (lenNCDC == 2) {
-      this.fileName = diseaseCelltheName.get(0) + "_vs_" + normalCelltheName.get(0) + "_db.zip";
-      try {
-        getDownloadFile();
-      } catch (Exception e) {
-        return ERROR;
-      }
-      return SUCCESS;
-    } else {
-      return ERROR;
-    }
-
-  }
-
-  public InputStream getDownloadFile() throws IllegalArgumentException {
-    String filenamePath = "/download/DiffBind/" + fileName;
-    System.out.println(filenamePath);
-    final InputStream resourceAsStream = ServletActionContext.getServletContext().getResourceAsStream(filenamePath);
-    if (resourceAsStream == null) {
-      throw new IllegalArgumentException(fileName + " is not exist!");
-    }
-    return resourceAsStream;
   }
 }

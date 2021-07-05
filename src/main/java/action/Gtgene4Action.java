@@ -1,6 +1,6 @@
 package action;
 
-import beans.Gtgene;
+import beans.Gtgene4;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import java.sql.Connection;
@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,14 +28,15 @@ public class Gtgene4Action implements Action {
   private String diff_method;
 
   public String execute() throws Exception {
+    ArrayList<Gtgene4> gtgene4_total = new ArrayList<>();
 
-    log.debug("Gtgene4={}, hm={}, type={}, chr={}, start={}, end={}, diff_method={}",
+    log.debug("gtgene4={}, hm={}, type={}, chr={}, start={}, end={}, diff_method={}",
         gtgene4, hm, type, chr, start, end, diff_method);
 
     diff_method = "Normal";
 
     if (StringUtils.isBlank(gtgene4) && StringUtils.isBlank(chr)) {
-      log.warn("ERROR with gtgene3={} and chr={}", gtgene4, chr);
+      log.warn("ERROR with gtgene4={} and chr={}", gtgene4, chr);
       return ERROR;
     }
     if (StringUtils.isBlank(hm) || StringUtils.isBlank(type)) {
@@ -42,30 +44,15 @@ public class Gtgene4Action implements Action {
       return ERROR;
     }
 
-    String table1 = "'" + hm + "_" + type.trim() + "_nt" + "'";
-    String table = hm + "_" + type.trim() + "_nt";
-    log.debug("table={}, table1={}", table, table1);
+    String tableName = hm.trim().toLowerCase() + "_" + type + "_nt";
+    String queryTableSql = "SELECT table_name FROM information_schema.TABLES WHERE table_name = `" + tableName + "`";
 
-    DbCon dbc = new DbCon();
-    Statement st = dbc.getStat();
-    Statement st1 = dbc.getStat();
-    ResultSet rs = null;
-    ResultSet rs1 = null;
-    String queryTableSql = "SELECT table_name FROM information_schema.TABLES WHERE table_name =" + table1;
-    System.out.println(queryTableSql);
-    rs1 = st.executeQuery(queryTableSql);
-    if (rs1.next()) {
-      System.out.println(queryTableSql);
-    } else {
-      return ERROR;
-    }
-
-    StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM `").append(table).append("` WHERE 1=1");
+    StringBuilder sqlBuilder = new StringBuilder().append("SELECT * FROM `").append(tableName).append("` WHERE 1=1");
     if (StringUtils.isNotBlank(gtgene4)) {
-        sqlBuilder.append(" AND genename LIKE '%").append(gtgene4).append("%'");
+      sqlBuilder.append(" AND genename LIKE '%").append(gtgene4.trim()).append("%'");
     }
     if (StringUtils.isNotBlank(chr)) {
-        sqlBuilder.append(" AND chr LIKE '%").append(chr).append("%'");
+      sqlBuilder.append(" AND chr LIKE '%").append(chr).append("%'");
     }
     if (StringUtils.isNotBlank(start)) {
       sqlBuilder.append(" AND start >= '").append(start).append("'");
@@ -73,42 +60,38 @@ public class Gtgene4Action implements Action {
     if (StringUtils.isNotBlank(end)) {
       sqlBuilder.append(" AND end <= '").append(end).append("'");
     }
-    return getResult(st, sqlBuilder.toString());
-  }
-
-  private String getResult(Statement st, String sql) throws SQLException {
-    log.debug("sql=[{}]'", sql);
-    ArrayList<Gtgene> gtgene4_total = new ArrayList<>();
-    int index = 0;
-    ResultSet rs;
-    rs = st.executeQuery(sql);
-    while (rs.next()) {
-      index = 1;
-      Gtgene gtgene = getGtgene(rs);
-      gtgene4_total.add(gtgene);
+    log.info("Query for \"{}\"", sqlBuilder);
+    try (Connection conn = DbCon.getConnection()) {
+      try (Statement st = conn.createStatement()) {
+        try (ResultSet rs = st.executeQuery(sqlBuilder.toString())) {
+          while (rs.next()) {
+            Gtgene4 gtgene4 = new Gtgene4();
+            gtgene4.setType(rs.getString(1));
+            gtgene4.setHm(rs.getString(2));
+            gtgene4.setGeneName(rs.getString(3));
+            gtgene4.setChr(rs.getString(4));
+            gtgene4.setStart(rs.getString(5));
+            gtgene4.setEnd(rs.getString(6));
+            gtgene4.setTf(rs.getString(13));
+            gtgene4.setDrug(rs.getString(12));
+            gtgene4.setGse(rs.getString(16));
+            gtgene4.setOption(rs.getString(17));
+            gtgene4_total.add(gtgene4);
+          }
+        }
+      }
+    } catch (SQLException e) {
+      log.error("查询失败", e);
+      return ERROR;
     }
-    if (index == 1) {
-      Map<String, ArrayList<Gtgene>> request = (Map) ActionContext.getContext().get("request");
+    if (CollectionUtils.isNotEmpty(gtgene4_total)) {
+      Map<String, ArrayList<Gtgene4>> request = (Map) ActionContext.getContext().get("request");
       request.put("gtgene4_total", gtgene4_total);
       return SUCCESS;
     } else {
+      log.warn("获取结果为空！");
       return ERROR;
     }
-  }
-
-  private Gtgene getGtgene(ResultSet rs) throws SQLException {
-    Gtgene gtgene = new Gtgene();
-    gtgene.setType(rs.getString(1));
-    gtgene.setHm(rs.getString(2));
-    gtgene.setGeneName(rs.getString(3));
-    gtgene.setChr(rs.getString(4));
-    gtgene.setStart(rs.getString(5));
-    gtgene.setEnd(rs.getString(6));
-    gtgene.setTf(rs.getString(13));
-    gtgene.setDrug(rs.getString(12));
-    gtgene.setGse(rs.getString(16));
-    gtgene.setOption(rs.getString(17));
-    return gtgene;
   }
 
   public String getHm() {

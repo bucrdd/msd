@@ -6,7 +6,7 @@ import java.util.Map;
 
 import util.DbCon;
 
-import beans.gene;
+import beans.Gene;
 
 
 
@@ -46,7 +46,7 @@ public class gene_action implements Action{
 	@SuppressWarnings("unchecked")
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		ArrayList<gene> gene_List = new ArrayList<gene>();
+		ArrayList<Gene> gene_List = new ArrayList<Gene>();
 		DbCon dbc = new DbCon();
 		Statement st = dbc.getStat();
 		ResultSet rs = null;
@@ -71,26 +71,26 @@ public class gene_action implements Action{
 		rs=st.executeQuery(sql);
 		while (rs.next()) {
 			index=1;
-			gene gene = new gene();
+			Gene gene = new Gene();
 			gene.setDisease(rs.getString(1));
 			
-			/*gene.setGeneid(rs.getString(2));
-			gene.setProtein(rs.getString(3));
-			gene.setRegulatory(rs.getString(4));
-			gene.setPrognostic(rs.getString(5));
-			gene.setMethylation_site(rs.getString(6));
-			gene.setGenomic_location(rs.getString(7));
-			gene.setTissue(rs.getString(8));
-			gene.setMethod(rs.getString(9));
-			gene.setSpecies(rs.getString(10));
-			gene.setPmid(rs.getString(11));
-			gene.setTitle(rs.getString(12));
-			gene.setDescription(rs.getString(13));*/
+			/*Gene.setGeneid(rs.getString(2));
+			Gene.setProtein(rs.getString(3));
+			Gene.setRegulatory(rs.getString(4));
+			Gene.setPrognostic(rs.getString(5));
+			Gene.setMethylation_site(rs.getString(6));
+			Gene.setGenomic_location(rs.getString(7));
+			Gene.setTissue(rs.getString(8));
+			Gene.setMethod(rs.getString(9));
+			Gene.setSpecies(rs.getString(10));
+			Gene.setPmid(rs.getString(11));
+			Gene.setTitle(rs.getString(12));
+			Gene.setDescription(rs.getString(13));*/
 			
 			gene_List.add(gene);
 		}
 		if(index==1){
-		Map<String, ArrayList<gene>> request = (Map) ActionContext.getContext().get("request");
+		Map<String, ArrayList<Gene>> request = (Map) ActionContext.getContext().get("request");
 			
 		request.put("gene_List", gene_List);
 		return SUCCESS;

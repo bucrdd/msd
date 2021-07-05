@@ -1,6 +1,6 @@
 package beans;
 
-public class gene {
+public class Gene {
 
   private String disease;
 
@@ -10,11 +10,11 @@ public class gene {
   private String title;
   private String description;
 
-  public gene() {
+  public Gene() {
     super();
   }
 
-  public gene(String disease, String geneId, String tissue, String pmid, String title, String description) {
+  public Gene(String disease, String geneId, String tissue, String pmid, String title, String description) {
     super();
     this.disease = disease;
 

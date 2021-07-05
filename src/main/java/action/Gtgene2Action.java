@@ -31,21 +31,21 @@ public class Gtgene2Action implements Action {
   public String execute() throws Exception {
     ArrayList<Gtgene2> gtgene2_total = new ArrayList<Gtgene2>();
 
-    log.debug("gtgene3={}, hm={}, type={}, chr={}, kegg={}, go={}, start={}, end={}, diff_method={}",
+    log.debug("gtgene2={}, hm={}, type={}, chr={}, kegg={}, go={}, start={}, end={}, diff_method={}",
         gtgene2, hm, type, chr, kegg, go, start, end, diff_method);
 
     if (StringUtils.isBlank(gtgene2) && StringUtils.isBlank(chr)) {
-      log.warn("ERROR with gtgene3={} and chr={}", gtgene2, chr);
+      log.warn("ERROR with gtgene2={} and chr={}", gtgene2, chr);
       return ERROR;
     }
 
-    if (StringUtils.isBlank(hm) && StringUtils.isBlank(type)) {
+    if (StringUtils.isBlank(hm) || StringUtils.isBlank(type)) {
       log.warn("ERROR with hm={} and type={}", hm, type);
       return ERROR;
     }
 
     String tableName = hm.trim().toLowerCase() + "_" + type.trim().toLowerCase() + "_nt";
-    String queryTableSql = "SELECT table_name FROM information_schema.TABLES WHERE table_name=?";
+//    String queryTableSql = "SELECT table_name FROM information_schema.TABLES WHERE table_name=?";
 
     StringBuilder sqlBuilder = new StringBuilder().append("SELECT * FROM `").append(tableName).append("` WHERE 1=1")
         .append(" AND genename LIKE '%").append(gtgene2).append("%'")

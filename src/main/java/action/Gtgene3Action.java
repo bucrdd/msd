@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,12 +35,12 @@ public class Gtgene3Action implements Action {
 
     diff_method = "Disease";
 
-    if (StringUtils.isEmpty(gtgene3) && StringUtils.isEmpty(chr)) {
+    if (StringUtils.isBlank(gtgene3) && StringUtils.isBlank(chr)) {
       log.warn("ERROR with gtgene3={} and chr={}", gtgene3, chr);
       return ERROR;
     }
 
-    if (StringUtils.isEmpty(hm) && StringUtils.isEmpty(type)) {
+    if (StringUtils.isBlank(hm) || StringUtils.isBlank(type)) {
       log.warn("ERROR with hm={} and type={}", hm, type);
       return ERROR;
     }
@@ -81,12 +82,17 @@ public class Gtgene3Action implements Action {
         }
       }
     } catch (SQLException e) {
-      log.error(e);
+      log.error("查询失败", e);
       return ERROR;
     }
-    Map<String, ArrayList<Gtgene>> request = (Map) ActionContext.getContext().get("request");
-    request.put("gtgene3_total", gtgene3_total);
-    return SUCCESS;
+    if (CollectionUtils.isNotEmpty(gtgene3_total)) {
+      Map<String, ArrayList<Gtgene>> request = (Map) ActionContext.getContext().get("request");
+      request.put("gtgene3_total", gtgene3_total);
+      return SUCCESS;
+    } else {
+      log.warn("获取结果为空！");
+      return ERROR;
+    }
   }
 
   public String getHm() {

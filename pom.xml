@@ -55,6 +55,11 @@
       <version>${batik.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-collections4</artifactId>
+      <version>4.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.ibatis</groupId>
       <artifactId>ibatis-sqlmap</artifactId>
       <version>2.3.0</version>
